@@ -1,7 +1,6 @@
 pipeline {
     agent any
     environment {
-        
         DOCKER_IMAGE_NAME = "ridgesidenetworks/train-schedule"
     }
     stages {
@@ -15,11 +14,7 @@ pipeline {
                 branch 'master'
             }
             steps {
-                script {
-                    echo 'Running build automation2'
-                 
-                    }
-                }
+                echo 'Running build automation2'             
             }
         }
         stage('Push Docker Image') {
@@ -27,8 +22,7 @@ pipeline {
                 branch 'master'
             }
             steps {
-                 echo 'Running build automation'
-                }
+                echo 'Running build automation3' 
             }
         }
         stage('DeployToProduction') {
