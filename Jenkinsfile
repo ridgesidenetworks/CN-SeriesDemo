@@ -10,25 +10,19 @@ pipeline {
             }
         }
         stage('Build Docker Image') {
-            when {
-                branch 'master'
-            }
+            
             steps {
                 echo 'Running build automation2'             
             }
         }
         stage('Push Docker Image') {
-            when {
-                branch 'master'
-            }
+            
             steps {
                 echo 'Running build automation3' 
             }
         }
         stage('DeployToProduction') {
-            when {
-                branch 'master'
-            }
+            
             steps {
                 input 'Deploy to Production?'
                 milestone(1)
