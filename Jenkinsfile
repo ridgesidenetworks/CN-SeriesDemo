@@ -15,7 +15,7 @@ pipeline {
                 echo 'Running build automation2'             
             }
         }
-        stage('Push Docker Image') {
+        stage('Approval') {
             
             steps {
                 input 'Deploy to Production?'
