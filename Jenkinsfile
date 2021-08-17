@@ -15,21 +15,19 @@ pipeline {
                 echo 'Running build automation2'             
             }
         }
-        stage('Approval') {
+        stage('Push Docker Image') {
             
             steps {
-                input {
-                    message "Should we continue?"
-                    ok "Yes"
-                }
-                milestone(1)    
+                input 'Deploy to Production?'
+                milestone(1)
             }
         }
         stage('DeployToProduction') {
             
             steps {
-                echo 'Deploying to Production'
+                echo 'Running build automation3' 
             }
         }
     }
 }
+
