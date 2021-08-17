@@ -27,6 +27,7 @@ pipeline {
                 input {
                 message "Should we continue?"
                 ok "Yes"
+                }
             }
                 
             }
