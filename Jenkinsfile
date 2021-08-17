@@ -18,19 +18,16 @@ pipeline {
         stage('Approval') {
             
             steps {
-                input {
-                    message "Should we continue?"
-                    ok "Yes"
-                }
+                input 'Deploy to Production?'
                 milestone(1)
+                 
             }
         }
         stage('DeployToProduction') {
             
             steps {
-                echo 'Running build automation3' 
+                echo 'Deploying to Production'
             }
         }
     }
 }
-
