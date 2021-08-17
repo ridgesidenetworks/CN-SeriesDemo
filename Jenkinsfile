@@ -20,17 +20,13 @@ pipeline {
             steps {
                 input 'Deploy to Production?'
                 milestone(1)
-                echo 'Deploying to Production' 
+                 
             }
         }
         stage('DeployToProduction') {
             
             steps {
-                kubernetesDeploy(
-                    kubeconfigId: 'kubeconfig',
-                    configs: 'guestbook.yml',
-                    enableConfigSubstitution: true
-                )
+                echo 'Deploying to Production'
             }
         }
     }
