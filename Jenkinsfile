@@ -24,13 +24,11 @@ pipeline {
         stage('DeployToProduction') {
             
             steps {
-                input 'Deploy to Production?'
-                milestone(1)
-                kubernetesDeploy(
-                    kubeconfigId: 'kubeconfig',
-                    configs: 'guestbook.yml',
-                    enableConfigSubstitution: true
-                )
+                input {
+                message "Should we continue?"
+                ok "Yes"
+            }
+                
             }
         }
     }
