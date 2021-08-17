@@ -18,7 +18,10 @@ pipeline {
         stage('Approval') {
             
             steps {
-                input 'Deploy to Production?'
+                input {
+                message "Should we continue?"
+                ok "Yes"
+                }
                 milestone(1)
                  
             }
