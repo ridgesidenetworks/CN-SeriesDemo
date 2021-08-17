@@ -19,11 +19,10 @@ pipeline {
             
             steps {
                 input {
-                message "Should we continue?"
-                ok "Yes"
+                    message "Should we continue?"
+                    ok "Yes"
                 }
-                milestone(1)
-                 
+                milestone(1)    
             }
         }
         stage('DeployToProduction') {
