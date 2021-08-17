@@ -15,21 +15,22 @@ pipeline {
                 echo 'Running build automation2'             
             }
         }
-        stage('Push Docker Image') {
+        stage('Approval') {
             
             steps {
-                echo 'Running build automation3' 
+                input 'Deploy to Production?'
+                milestone(1)
+                echo 'Deploying to Production' 
             }
         }
         stage('DeployToProduction') {
             
             steps {
-                input {
-                message "Should we continue?"
-                ok "Yes"
-                }
-            }
-                
+                kubernetesDeploy(
+                    kubeconfigId: 'kubeconfig',
+                    configs: 'guestbook.yml',
+                    enableConfigSubstitution: true
+                )
             }
         }
     }
