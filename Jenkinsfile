@@ -13,7 +13,7 @@ pipeline {
             steps {
                 emailext body: '''The following application review requires ITSG-22 Code review and approval: https://github.com/ridgesidenetworks/CN-SeriesDemo/blob/main/guestbook.yml
 
-Please click the following link to approve the job:  http://10.0.0.50:8080/job/EmailTest/
+Please click the following link to approve the job:  http://10.0.0.50:8080/job/test/job/main/
 
 ''', subject: 'New application deployed requires ITSG-22 Tag Review', to: 'mallen@paloaltonetworks.com'
             }
