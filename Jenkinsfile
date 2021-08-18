@@ -29,7 +29,11 @@ Please click the following link to approve the job:  http://10.0.0.50:8080/job/t
         stage('DeployToProduction') {
             
             steps {
-                echo 'Deploying to Production'
+                kubernetesDeploy(
+                    kubeconfigId: 'kubeconfig',
+                    configs: 'guestbook.yml',
+                    enableConfigSubstitution: true
+                )
             }
         }
     }
