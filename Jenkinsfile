@@ -11,9 +11,11 @@ pipeline {
         }
         stage('Send Approval Email') {
             steps {
-                mail bcc: '', body: '''#${env.BUILD_NUMBER} is being deployed and requires ITSG-22 Security tag review.  Please review the following YML file and approve the ITSG-22 Tag assignments
+                emailext body: '''The following application review requires ITSG-22 Code review and approval: https://github.com/ridgesidenetworks/CN-SeriesDemo/blob/main/guestbook.yml
 
-https://github.com/ridgesidenetworks/CN-SeriesDemo/blob/main/guestbook.yml''', cc: '', from: '', replyTo: '', subject: 'ITSG-22 Tag approval', to: 'markf6@gmail.com'
+Please click the following link to approve the job:  http://10.0.0.50:8080/job/EmailTest/
+
+''', subject: 'New application deployed requires ITSG-22 Tag Review', to: 'mallen@paloaltonetworks.com'
             }
         }
         stage('Approval') {
