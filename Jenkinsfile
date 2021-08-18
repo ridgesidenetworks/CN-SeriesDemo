@@ -9,10 +9,9 @@ pipeline {
                 echo 'Running build automation'
             }
         }
-        stage('Build Docker Image') {
-            
+        stage('Send Approval Email') {
             steps {
-                echo 'Running build automation2'             
+                emailext attachLog: true, body: 'New Application requires your approval', subject: 'Test CICD Build subject', to: 'markf6@gmail.com'
             }
         }
         stage('Approval') {
